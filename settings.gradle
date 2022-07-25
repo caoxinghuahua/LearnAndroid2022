@@ -4,6 +4,6 @@ include ':crashlib'
 include ':asmLib'
 include ':myapplication'
 include ':app'
-rootProject.name = "My Application"
+rootProject.name = "LearnAndroid2022"
 println("初始化阶段开始")
 
