@@ -1,0 +1,9 @@
+include ':javapoet'
+include ':baseLib'
+include ':crashlib'
+include ':asmLib'
+include ':myapplication'
+include ':app'
+rootProject.name = "My Application"
+println("初始化阶段开始")
+

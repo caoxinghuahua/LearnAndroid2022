@@ -1,0 +1,124 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = '1.4.32'
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.3"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        //AndResGuard
+        classpath'com.tencent.mm:AndResGuard-gradle-plugin:1.2.20'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+//扩展属性
+ext {
+    name = "test"
+}
+
+println("***${ext.name}***")
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+this.beforeEvaluate {
+    println("配置阶段开始前")
+}
+this.afterEvaluate {
+    println("配置阶段执行结束")
+}
+this.gradle.buildFinished {
+    println("执行阶段执行完毕")
+}
+
+this.getProjects()
+
+
+def getProjects() {
+    println("------")
+    println("root project")
+    println("------")
+    this.getAllprojects().eachWithIndex { Project entry, int i ->
+        if (i == 0) {
+            println("root project is ${entry.name}")
+        } else {
+            println("+-----project ${entry.name}")
+        }
+    }
+
+}
+
+//修改指定project的配置项
+project(":app") {
+    Project project ->
+        version = "1111111"
+}
+
+
+//两种创建task的方式
+
+task task1 {
+    println("**创建task 方式一**")
+    doFirst {
+        println("**task1 执行阶段开始**")
+    }
+    doLast {
+        println("**task1 执行阶段结束**")
+    }
+}
+
+this.tasks.create("task2222") {
+    setGroup("myTask")//指定分组
+    setDescription("自建task")
+    println("***创建task的第二种方式***")
+    dependsOn(task1)//依赖的task
+}
+
+
+//task 静态依赖
+
+task taskA {
+    doLast {
+        println("taskA")
+    }
+}
+task taskB {
+    doLast {
+        println("taskB")
+    }
+}
+
+task taskC(dependsOn: [taskA, taskB]) {
+    doLast {
+        println("taskC")
+    }
+}
+////方式二
+//taskC.dependsOn(taskA,taskB){
+//
+//}
+
+
+//配置阶段执行完之后执行
+//this.project.afterEvaluate {
+//    def buildTask = this.project.getTasks().findByName("build")
+//    if (buildTask == null) {
+////        throw GradleException
+//        println(" build task  is null")
+//    }
+//
+//    buildTask.doLast {
+//        println("after build task  excute")
+//    }
+//
+//}

@@ -1,0 +1,8 @@
+//gradle 脚本插件
+
+project.task("showConfig"){
+    doLast {
+        println("$project.name:showConfig")
+    }
+
+}

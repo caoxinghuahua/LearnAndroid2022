@@ -1,0 +1,11 @@
+//在gradle脚本文件中定义对象插件
+//class PluginCustom implements Plugin<Project> {
+//    @Override
+//    void apply(Project target) {
+//        target.task('showCustomPluginInBuildGradle') {
+//            doLast {
+//                println("PluginCoustom ")
+//            }
+//        }
+//    }
+//}
