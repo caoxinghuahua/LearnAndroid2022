@@ -1,3 +1,6 @@
+include ':kotlinleran'
+include ':arouter_learn:modulea'
+include ':arouter_learn:aroutermain'
 include ':javapoet'
 include ':baseLib'
 include ':crashlib'

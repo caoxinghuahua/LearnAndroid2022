@@ -1,7 +1,7 @@
-package com.example.myapplication2.java;
+package com.example.kotlinleran.java;
 
-import com.example.myapplication2.kotlin.K1;
-import com.example.myapplication2.kotlin.K1Kt;
+import com.example.kotlinleran.kotlin.K1;
+import com.example.kotlinleran.kotlin.K1Kt;
 
 public class J1 {
     public static String in="javassssss";
