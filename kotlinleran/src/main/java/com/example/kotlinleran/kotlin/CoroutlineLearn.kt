@@ -19,6 +19,7 @@ fun test() = runBlocking {
     job.join() // waits for job's completion
     System.out.println("main: Now I can quit.")
 
+
 }
 
 fun main(args: Array<String>) {
@@ -26,6 +27,7 @@ fun main(args: Array<String>) {
 
 
     newtest()
+    testArray()
 }
 
 fun newtest() {
@@ -40,6 +42,16 @@ fun newtest() {
 
 }
 
+fun testArray() {
+    var intArray = intArrayOf(1, 2)
+    var strArray = buildString {
+
+    }
+    strArray.plus("c").plus("b")
+    print(strArray.toString())
+
+}
+
 suspend fun a() {
     coroutineScope {
 
@@ -50,10 +62,8 @@ suspend fun a() {
 //}
 
 
-
-
 //自定义协程拦截器
-class My :ContinuationInterceptor{
+class My : ContinuationInterceptor {
     override val key: CoroutineContext.Key<*>
         get() = TODO("Not yet implemented")
 

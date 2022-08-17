@@ -27,5 +27,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="多进程测试" />
+    <TextView
+        android:id="@+id/goTaskTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="task测试" />
 
 </LinearLayout>

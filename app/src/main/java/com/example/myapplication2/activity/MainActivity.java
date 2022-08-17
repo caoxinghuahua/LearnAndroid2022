@@ -53,6 +53,14 @@ public class MainActivity extends Activity {
                 startService(intentService);
             }
         });
+        findViewById(R.id.goTaskTv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClassName("com.example.kotlinleran", "com.example.kotlinleran.SecondActivity");
+                startActivity(intent);
+            }
+        });
 //        Toast
 
         int a = 10;
