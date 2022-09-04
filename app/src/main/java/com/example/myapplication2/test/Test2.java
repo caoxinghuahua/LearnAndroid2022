@@ -9,5 +9,9 @@ public class Test2 {
 
 
     }
-
+    /**验证静态导包
+     * */
+    public static void print(){
+        System.out.println("static");
+    }
 }
