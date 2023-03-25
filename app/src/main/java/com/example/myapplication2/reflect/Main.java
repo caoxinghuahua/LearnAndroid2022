@@ -40,6 +40,7 @@ public class Main {
 
     /**
      * 反射获取泛型类型
+     * https://blog.csdn.net/qq_33838671/article/details/108695892
      */
     public static void testFanxin() throws NoSuchFieldException {
         // TypeVariable

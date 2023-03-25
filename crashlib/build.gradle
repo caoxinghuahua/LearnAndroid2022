@@ -24,7 +24,7 @@ android {
         }
         //打包时要把哪些cpu架构打进去
         ndk{
-            abiFilters 'armeabi-v7a','x86'
+            abiFilters 'armeabi-v7a','x86','arm64-v8a'
         }
 
     }

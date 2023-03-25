@@ -1,3 +1,4 @@
+include ':third_lib'
 include ':kotlinleran'
 include ':arouter_learn:modulea'
 include ':arouter_learn:aroutermain'

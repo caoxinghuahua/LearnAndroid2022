@@ -1,9 +1,12 @@
 package com.example.kotlinleran
 
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
+import androidx.lifecycle.MutableLiveData
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,6 +16,18 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SecondActivity::class.java);
             startActivity(intent)
         }
+//        Log.d("**sssss**","sign:"+getSignString());
 
+        val liveData= MutableLiveData<String>()
+        liveData.observe(this,{
+            println("###$it###")
+        })
+        liveData.value="huahua"
     }
+    fun getSignString(): String? {
+        return packageManager.getPackageInfo("com.drojian.alpha.fasting", PackageManager.GET_SIGNATURES)
+                .signatures[0].toCharsString()
+    }
+
+
 }

@@ -1,0 +1,4 @@
+此module是关于第三方库的学习demo
+
+rxjava:
+https://cloud.tencent.com/developer/article/1963250

@@ -6,6 +6,10 @@ import kotlin.reflect.KClass
 class K1 {
     fun show2() {
         System.out.println("show2 kotlin")
+        var s= mutableListOf<String>()
+        for(a in s){
+
+        }
     }
 
 

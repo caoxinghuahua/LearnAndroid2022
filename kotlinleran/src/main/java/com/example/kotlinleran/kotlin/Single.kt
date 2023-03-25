@@ -12,6 +12,7 @@ class Single {
 
     }
 
+
     //懒汉
     class SingleA private constructor() {
         companion object {
@@ -23,11 +24,14 @@ class Single {
                     return field
                 }
 
-            //不用getInstance,因为在半生对象里面默认有（instance变量）getInstance方法
+            //不用getInstance,因为在伴生对象里面默认有（instance变量）getInstance方法
             fun get(): SingleA {
                 return instance!!
             }
+            @JvmStatic
+            fun test(){
 
+            }
         }
 
         fun showA() {
@@ -84,6 +88,19 @@ class Single {
 
         fun showD() {
             println("静态内部类")
+        }
+    }
+
+    class SingleE{
+        companion object{
+            var instance:SingleE?=null
+            fun getE():SingleE{
+                return instance?: synchronized(this){
+                    instance?:SingleE().also {
+                        instance=it
+                    }
+                }
+            }
         }
     }
 

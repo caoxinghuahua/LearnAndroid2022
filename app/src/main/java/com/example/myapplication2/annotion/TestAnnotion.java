@@ -1,5 +1,7 @@
 package com.example.myapplication2.annotion;
 
+import androidx.annotation.DrawableRes;
+
 import java.lang.reflect.Method;
 import java.util.HashSet;
 import java.util.Set;
@@ -7,6 +9,7 @@ import java.util.Set;
 public class TestAnnotion {
     public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException {
         testAnnoation();
+//        setDrawable(111);
     }
 
     /**
@@ -32,5 +35,9 @@ public class TestAnnotion {
             System.out.println(name.f1());
             System.out.println("创建的社区:" + name.f2());
         }
+    }
+
+    public static void setDrawable(@DrawableRes int id){
+
     }
 }

@@ -7,8 +7,8 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.Choreographer;
 
-import com.example.myapplication2.plugin.HookUtils;
-import com.example.myapplication2.plugin.PluginUtils;
+import com.example.myapplication2.generic.plugin.HookUtils;
+import com.example.myapplication2.generic.plugin.PluginUtils;
 import com.tencent.mmkv.MMKV;
 
 import java.util.Arrays;
@@ -26,10 +26,7 @@ public class MyApplication extends Application {
             }
         });
 
-//        PluginUtils.loadPluginClass(this);
-//
-//        HookUtils.hookAMS();
-//        HookUtils.hookHandler();
+//        testPlugin();
 
 
         if (isMainProcess(this)) {
@@ -115,5 +112,15 @@ public class MyApplication extends Application {
         Log.i("MMKV", "after set null, string-set: " + kv.getStringSet("string-set", null));
 //        MMKV.defaultMMKV().reKey()
     }
+    /**
+     *  插件化
+     * */
+    private void testPlugin(){
 
+        PluginUtils.loadPluginClass(this);
+        HookUtils.hookAMS();
+        HookUtils.hookHandler();
+
+    }
 }
+

@@ -79,21 +79,32 @@ task task1 {
     }
 }
 
-this.tasks.create("task2222") {
+this.tasks.create("task2222"){
     setGroup("myTask")//指定分组
     setDescription("自建task")
     println("***创建task的第二种方式***")
     dependsOn(task1)//依赖的task
 }
 
+def Task hello=task(hello)
+hello.description ='hello world'
+hello.group=BasePlugin.BUILD_GROUP
+hello.doLast{
+    println "任务分组: ${group}"
+    println "任务描述: ${description}"
+}
+
 
 //task 静态依赖
 
 task taskA {
+    println("start taskA")
     doLast {
         println("taskA")
     }
 }
+
+
 task taskB {
     doLast {
         println("taskB")
@@ -124,3 +135,79 @@ task taskC(dependsOn: [taskA, taskB]) {
 //    }
 //
 //}
+
+
+task method{
+    //方法的调用
+    add(1,2)
+    println mins(5,2)
+    //类的调用
+    def person=new Person(20,'hua')
+    person.increaseAge 10
+    println person.name +" age is "+person.age
+
+    test()
+}
+
+//task中方法的调用
+def add(int a,int b){
+    //未指定返回值，默认返回最后一行代码执行结果
+    println a+b
+}
+//如果指定了方法返回类型，可以不需要def关键字来定义方法。
+int  mins(int a,int b){
+    println a-b
+    return 1
+}
+def test() {
+    def number=[1,2,3]
+    assert number instanceof List
+    def name=[one:"张无忌",two:"郭靖",three:"杨过"]
+    assert name['one']=="张无忌"
+    //exception
+   // assert name.one=="杨过"
+
+//    def key = 'name'
+//    def person = [key: '魏无羡'] //key是key 而不是name
+//    assert person.containsKey('key')
+//    person = [(key): '魏无羡'] //key是name
+//    assert person.containsKey('name')
+//    { it -> println it }   //it是一个显示参数
+//    { String a, String b ->
+//        println "${a} is a ${b}"
+//    }
+
+   //文件的读取
+//    def filePath = "/Users/hua/test.txt"
+//    def file = new File(filePath) ;
+//    //方式一
+//    file.eachLine {
+//        println it
+//    }
+//    //方式二
+//    println file.text
+//    //文件写入
+//    file.withPrintWriter {
+//        it.println("樱木花道")
+//        it.println("流川枫")
+//    }
+}
+//自定义gradle wrapper
+//task wraper(type: Wrapper){
+//    gradleVersion=""
+//    distributionPath=""
+//}
+//groovy类
+
+class Person{
+    Integer age
+    String name
+    Person(Integer age,String name){
+        this.age=age
+        this.name=name
+    }
+    def increaseAge(Integer years){
+        this.age+=years
+    }
+}
+

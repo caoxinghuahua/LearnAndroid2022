@@ -33,5 +33,17 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="task测试" />
+    <TextView
+        android:id="@+id/annotation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义隐注解获取view"
+        android:layout_marginTop="50dp"/>
+    <TextView
+        android:id="@+id/bigBitmap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Intent传大图"
+        android:layout_marginTop="50dp"/>
 
 </LinearLayout>
