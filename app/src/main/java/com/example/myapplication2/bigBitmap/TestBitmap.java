@@ -18,7 +18,7 @@ public class TestBitmap {
             // 获取文件描述符，因为方法被标注为 @hide，只能反射获取
             Method method=memoryFile.getClass().getDeclaredMethod("getFileDescriptor");
             method.setAccessible(true);
-            FileDescriptor fileDescriptor= (FileDescriptor) method.invoke(memoryFile,null);
+            FileDescriptor fileDescriptor= (FileDescriptor) method.invoke(memoryFile,new Object[]{});
             if(fileDescriptor==null){
                 System.out.println("获取匿名共享内存的 FileDescriptor 失败");
             }else{

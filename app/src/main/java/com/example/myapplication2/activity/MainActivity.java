@@ -30,6 +30,8 @@ import com.example.myapplication2.service.MyService;
 import com.example.myapplication2.utils.BitmapUtil;
 
 import java.io.FileDescriptor;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class MainActivity extends Activity {
     private final String TAG = this.getClass().getSimpleName();

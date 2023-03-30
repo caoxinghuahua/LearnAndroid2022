@@ -8,6 +8,7 @@ include ':crashlib'
 include ':asmLib'
 include ':myapplication'
 include ':app'
+include ':arcgis2'
 rootProject.name = "LearnAndroid2022"
 println("初始化阶段开始")
 

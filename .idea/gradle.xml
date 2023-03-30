@@ -13,6 +13,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/arcgis2" />
             <option value="$PROJECT_DIR$/arouter_learn" />
             <option value="$PROJECT_DIR$/arouter_learn/aroutermain" />
             <option value="$PROJECT_DIR$/arouter_learn/modulea" />

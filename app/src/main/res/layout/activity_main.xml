@@ -45,5 +45,13 @@
         android:layout_height="wrap_content"
         android:text="Intent传大图"
         android:layout_marginTop="50dp"/>
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:textSize="18sp"
+        android:ems="1"
+        android:text="hello"/>
 
 </LinearLayout>
