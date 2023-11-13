@@ -1,0 +1,16 @@
+ext{
+    android=[
+             'compileSdkVersion':29,
+             'minSdkVersion':23
+
+    ]
+    components=[
+            "isAppRun":false
+    ]
+    dependencies=[
+            'appcompat': 'androidx.appcompat:appcompat:1.4.1',
+            'material': 'com.google.android.material:material:1.5.0',
+            'constraintlayout':'androidx.constraintlayout:constraintlayout:2.1.3'
+    ]
+}
+

@@ -3,6 +3,8 @@ package com.example.myapplication2.activity;
 
 import android.app.Activity;
 import android.content.ComponentName;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.res.Configuration;
@@ -13,13 +15,19 @@ import android.os.IBinder;
 import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.RemoteException;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.asynclayoutinflater.view.AsyncLayoutInflater;
+import androidx.core.content.ContextCompat;
 
+import com.example.myapplication2.MyApplication;
 import com.example.myapplication2.R;
 import com.example.myapplication2.annotion.InjectUtil;
 import com.example.myapplication2.annotion.InjectView;
@@ -33,6 +41,8 @@ import java.io.FileDescriptor;
 import java.util.HashMap;
 import java.util.HashSet;
 
+import io.flutter.embedding.android.FlutterActivity;
+
 public class MainActivity extends Activity {
     private final String TAG = this.getClass().getSimpleName();
     private TextView textView;
@@ -41,7 +51,8 @@ public class MainActivity extends Activity {
     private TextView annotationView;
     @InjectView(R.id.bigBitmap)
     private TextView bigBitmapView;
-
+    @InjectView(R.id.showFlutterView)
+    private TextView showFlutterViewTv;
 
     byte[] bytes = "落霞与孤鹜齐飞，秋水共长天一色。".getBytes();
     private int transitCode = 1000;
@@ -122,10 +133,10 @@ public class MainActivity extends Activity {
 
             @Override
             public void onServiceConnected(ComponentName name, IBinder binder) {
-                Log.d(TAG, "onServiceConnected" );
+                Log.d(TAG, "onServiceConnected");
 
                 if (binder == null) return;
-                Bitmap bitmap= BitmapFactory.decodeResource(getResources(),R.drawable.test_big_bitmap);
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.test_big_bitmap);
                 ParcelFileDescriptor descriptor = TestBitmap.createMemoryFile(BitmapUtil.bitmap2bytes(bitmap));
                 // 传递 FileDescriptor 和 共享内存中数据的大小
                 Parcel sendData = Parcel.obtain();
@@ -147,7 +158,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void onServiceDisconnected(ComponentName name) {
-                Log.d(TAG, "onServiceDisconnected" );
+                Log.d(TAG, "onServiceDisconnected");
             }
 
             @Override
@@ -166,6 +177,20 @@ public class MainActivity extends Activity {
                     bindService(intent, serviceConnection, BIND_AUTO_CREATE);
                 }
         );
+        showFlutterViewTv.setOnClickListener(v -> {
+//                  startActivity(FlutterActivity.withNewEngine().initialRoute("route3").build(MainActivity.this));
+                    //缓存FlutterEngin加快页面跳转速度
+//                    startActivity(FlutterActivity.withCachedEngine(MyApplication.CACHED_ENGINE_ID).build(MainActivity.this));
+
+                    MyFlutterActivity.Companion.startFlutterPage(this, "router3");
+
+                }
+        );
+//        DisplayMetrics displayMetrics=new DisplayMetrics();
+//        getWindow().getDecorView().getDisplay().getMetrics(displayMetrics);
+//        int heightPixels = displayMetrics.heightPixels;
+//
+//        getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
 
     }
 
@@ -223,6 +248,7 @@ public class MainActivity extends Activity {
     protected void onStop() {
         super.onStop();
         Log.d(TAG, "onStop");
+
     }
 
 

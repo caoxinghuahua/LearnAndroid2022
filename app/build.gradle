@@ -11,6 +11,7 @@ apply from: 'res_build.gradle'
 android {
     compileSdkVersion 31
 
+
     defaultConfig {
         configurations.all {
             resolutionStrategy { force 'androidx.core:core-ktx:1.6.0' }
@@ -25,7 +26,7 @@ android {
         println("——————————${version}————————")
 
         resConfigs "zh-rCN"  //打包中支持的语言（三方库包含了其他语言包比如 appcompat）
-
+        multiDexEnabled true
     }
     signingConfigs {
         joke {
@@ -35,7 +36,7 @@ android {
             storeFile file('../key.keystore')
         }
     }
-
+    kotlinOptions { jvmTarget = 1.8 }
     buildTypes {
         release {
             minifyEnabled true
@@ -48,10 +49,24 @@ android {
             signingConfig signingConfigs.joke
         }
 
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+//
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+//            variant.getPackageApplication().outputDirectory = new File(project.rootDir.absolutePath + "/build/outputs/apk/release")
+            outputFileName = "${project.name}_${defaultConfig.versionName}_${variant.buildType.name}.apk"
+            println("apkName:" + outputFileName)
+        }
+    }
+    packagingOptions {
+        //在leakcanary和koom中同时使用了shark库
+        exclude 'META-INF/shark.kotlin_module'
     }
 
 }
@@ -70,8 +85,11 @@ dependencies {
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 //    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:$kotlin_version'
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-rc01"
 
     implementation project(path: ':baseLib')
+
+    implementation project(path: ':flutter')
 
 }
 repositories {

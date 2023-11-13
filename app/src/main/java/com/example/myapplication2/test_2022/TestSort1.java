@@ -39,7 +39,7 @@ public class TestSort1 {
     }
 
     /**
-     * 从0～n-1个有序数中找出确失的数
+     * 从0～n-1个有序数中找出缺失的数
      * https://leetcode.cn/problems/que-shi-de-shu-zi-lcof/
      */
     public static int queryNum(int[] nums) {
@@ -264,4 +264,16 @@ public class TestSort1 {
         return fib(n-1)+fib(n-2);
     }
 
+
+//    public void reverse(ListNode head){
+//        if(head==null||head.next==null)return head;
+//        ListNode pre=temp=null;
+//        while(head!=null){
+//            temp=head.next;
+//            head.next=pre;
+//            pre=head;
+//            head=tmp;
+//        }
+//        return pre;
+//    }
 }

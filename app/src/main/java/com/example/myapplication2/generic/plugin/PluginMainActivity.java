@@ -6,7 +6,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-
+//插件化  https://juejin.cn/post/6844903613865672718#heading-1
 import com.example.myapplication2.R;
 
 public class PluginMainActivity extends AppCompatActivity {

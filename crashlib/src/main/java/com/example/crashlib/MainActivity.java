@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 //        TestJavaCrash.testJavaCrash();
-//        CrashReport.INSTANCE.testNativeCrash();
+        CrashReport.INSTANCE.testNativeCrash();
         testLogan();
 
     }

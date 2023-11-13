@@ -1,5 +1,9 @@
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
+    //在project中引入，其他模块都可以使用，使用时加上rootProject.
+    apply from: 'arouter_learn/config.gradle'
+
     ext.kotlin_version = '1.4.32'
     repositories {
 

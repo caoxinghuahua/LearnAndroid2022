@@ -34,6 +34,7 @@ public class TreeApiTest {
 //            for (MethodNode methodNode : methodNodes) {
 //                System.out.println("user 类的方法：" + methodNode.name + "--" + methodNode.desc);
 //            }
+
             classReader.accept(new ClassVisitor(Opcodes.ASM9) {
                 @Override
                 public FieldVisitor visitField(int access, String name, String descriptor, String signature, Object value) {

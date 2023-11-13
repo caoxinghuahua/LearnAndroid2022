@@ -2,6 +2,8 @@ include ':third_lib'
 include ':kotlinleran'
 include ':arouter_learn:modulea'
 include ':arouter_learn:aroutermain'
+include ':arouter_learn:moduleb'
+
 include ':javapoet'
 include ':baseLib'
 include ':crashlib'
@@ -12,3 +14,16 @@ include ':arcgis2'
 rootProject.name = "LearnAndroid2022"
 println("初始化阶段开始")
 
+include ':aidlclient'
+
+
+//flutter
+setBinding(new Binding([gradle:this]))
+evaluate(
+        new File(
+                settingsDir,
+                '../flutter_module/.android/include_flutter.groovy'
+        )
+)
+include ':flutter_module'
+project(':flutter_module').projectDir = new File('../flutter_module')

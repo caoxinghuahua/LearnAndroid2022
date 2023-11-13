@@ -23,7 +23,7 @@ class BitmapService :Service() {
     override fun onCreate() {
         super.onCreate()
         Log.d(TAG,"onCreate")
-//        Toast.makeText(baseContext, "service create", Toast.LENGTH_SHORT).show()
+//        Toast.makeText(baseContext, "servic  e create", Toast.LENGTH_SHORT).show()
     }
     class BitmapBinder(val context: Context) : Binder() {
 

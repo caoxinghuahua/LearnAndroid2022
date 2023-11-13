@@ -9,9 +9,9 @@ android {
     buildToolsVersion "29.0.3"
 
     defaultConfig {
-        configurations.all {
-            resolutionStrategy { force 'androidx.core:core-ktx:1.6.0' }
-        }
+//        configurations.all {
+//            resolutionStrategy { force 'androidx.core:core-ktx:1.6.0' }
+//        }
         applicationId "com.example.kotlinleran"
         minSdkVersion 23
         targetSdkVersion 29

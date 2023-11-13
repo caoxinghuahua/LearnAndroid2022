@@ -3,6 +3,7 @@ package com.example.myapplication2.activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication2.R
 import kotlinx.coroutines.*
@@ -10,10 +11,14 @@ import kotlinx.coroutines.flow.*
 
 class ActivityB : AppCompatActivity() {
     private val TAG: String = "ActivityB"
+    val a by lazy{
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_b)
         Log.d(TAG, "onCreate")
+        startActivity(Intent(this,MainActivity::class.java))
 
     }
 

@@ -41,4 +41,19 @@ dependencies {
 
     //logan引入
     api 'com.dianping.android.sdk:logan:1.2.4'
+
+    //XCrash
+    api 'com.iqiyi.xcrash:xcrash-android-lib:2.4.6'
+
+    api "com.kuaishou.koom:koom-monitor-base:${VERSION_NAME}"
+    api "com.kuaishou.koom:koom-java-leak:${VERSION_NAME}"
+
+
+    api 'com.squareup.retrofit2:converter-gson:2.1.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+    api 'com.squareup.okhttp3:okhttp:3.7.0'
+    api 'com.squareup.retrofit2:retrofit:2.1.0'
+
+//    debugApi 'com.squareup.leakcanary:leakcanary-android:2.10'
+
 }

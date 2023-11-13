@@ -45,6 +45,10 @@ fun main(args: Array<String>) {
 
     val array3: IntArray = IntArray(5)//原生类型数组,不用装箱
 
-    var map=mutableMapOf("a" to 1,"b" to 2)
+    var map = mutableMapOf("a" to 1, "b" to 2)
+
 
 }
+
+
+

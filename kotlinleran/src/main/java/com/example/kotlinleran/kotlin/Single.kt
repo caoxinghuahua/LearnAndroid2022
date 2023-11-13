@@ -101,6 +101,13 @@ class Single {
                     }
                 }
             }
+            fun  getA():SingleE{
+                return instance?: synchronized(this){
+                    instance?:SingleE().also {
+                        instance=it;
+                    }
+                }
+            }
         }
     }
 

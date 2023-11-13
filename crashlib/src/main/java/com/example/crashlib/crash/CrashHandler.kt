@@ -19,7 +19,7 @@ class CrashHandler : Thread.UncaughtExceptionHandler {
     }
 
     override fun uncaughtException(t: Thread, e: Throwable) {
-        var fileDir = File(mContext?.externalCacheDir, "cacheInfo")
+        var fileDir = File(mContext?.externalCacheDir, "crashInfo")
         if (!fileDir.exists()) {
             fileDir.mkdirs()
         }

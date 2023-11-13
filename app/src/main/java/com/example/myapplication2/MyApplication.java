@@ -7,18 +7,29 @@ import android.content.SharedPreferences;
 import android.util.Log;
 import android.view.Choreographer;
 
+import com.example.myapplication2.crash.CrashReport;
 import com.example.myapplication2.generic.plugin.HookUtils;
 import com.example.myapplication2.generic.plugin.PluginUtils;
+import com.example.myapplication2.koom.OOMMonitorInitTask;
+import com.kwai.koom.javaoom.monitor.OOMMonitor;
 import com.tencent.mmkv.MMKV;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 
+import io.flutter.embedding.engine.FlutterEngine;
+import io.flutter.embedding.engine.FlutterEngineCache;
+import io.flutter.embedding.engine.dart.DartExecutor;
+import xcrash.XCrash;
+
 public class MyApplication extends Application {
+    public static final String CACHED_ENGINE_ID = "MY_CACHED_ENGINE_ID";
+
     @Override
     public void onCreate() {
         super.onCreate();
+        CrashReport.INSTANCE.report(this);
         Choreographer.getInstance().postFrameCallback(new Choreographer.FrameCallback() {
             @Override
             public void doFrame(long frameTimeNanos) {
@@ -34,9 +45,9 @@ public class MyApplication extends Application {
         } else {
             Log.d("*MyApplication*", "is not main process");
         }
-
-
         initMMKV();
+        initXCrash();
+        initFlutter();
     }
 
     /**
@@ -120,6 +131,28 @@ public class MyApplication extends Application {
         PluginUtils.loadPluginClass(this);
         HookUtils.hookAMS();
         HookUtils.hookHandler();
+
+    }
+    private void initXCrash(){
+        //https://blog.csdn.net/cxmfzu/article/details/102624295
+        XCrash.init(this,new XCrash.InitParameters().enableJavaCrashHandler());
+    }
+    private void initKoom(){
+        OOMMonitorInitTask.INSTANCE.init(this);
+        OOMMonitor.INSTANCE.startLoop(true, false,5_000L);
+
+    }
+
+    //https://zhuanlan.zhihu.com/p/450575646
+    //https://blog.csdn.net/qq_34202054/article/details/117596583
+    private void initFlutter(){
+        //在MyApplication中预先初始化Flutter引擎以提升Flutter页面打开速度
+        FlutterEngine flutterEngine=new FlutterEngine(this);
+        // Start executing Dart code to pre-warm the FlutterEngine.
+
+        flutterEngine.getDartExecutor().executeDartEntrypoint(DartExecutor.DartEntrypoint.createDefault());
+        // Cache the FlutterEngine to be used by FlutterActivity.
+        FlutterEngineCache.getInstance().put(CACHED_ENGINE_ID,flutterEngine);
 
     }
 }

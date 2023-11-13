@@ -10,10 +10,9 @@ public class Test1 {
 
 
     public static void main(String[] args) {
-//        int[] n = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
-//        System.out.println(getMaxArray(n));
-////
-//
+        int[] n = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+        System.out.println(getMaxArray(n));
+
 //        //多态研究
 //        ParentClass parentClass = new ChildClass();
 //        System.out.println("id:" + parentClass.id);
@@ -74,6 +73,22 @@ public class Test1 {
 //        new My().my();
         return sum;
     }
+
+//
+//    public static int test(int num[]){
+//        if(num==null||num.length==0)return 0;
+//        int sum=num[0];
+//        int res=sum;
+//        for(int i=1;i<=num.length-1;i++){
+//            if(sum>=0){
+//                sum+=num[i];
+//            }else{
+//                sum=num[i];
+//            }
+//            res =Math.max(sum,res);
+//        }
+//        return res;
+//    }
 
     public static void diffAB(char[] a, char[] b) {
         if (a == null || b == null || a.length == 0 || b.length == 0) return;
@@ -189,6 +204,24 @@ public class Test1 {
         }
 
 
+    }
+
+
+    /**
+     * n饮料数，
+     * bottle空瓶数
+     * 瓶盖数
+     * */
+    public static int testWater(int n,int bottle,int cap){
+        bottle%=2;
+        bottle+=n;
+        cap%=4;
+        cap+=n;
+        if(bottle<2||cap<4){
+            return n;
+        }else {
+            return n+testWater(bottle/2+cap/4,bottle,cap);
+        }
     }
 
 }

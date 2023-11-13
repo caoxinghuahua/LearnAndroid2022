@@ -10,7 +10,7 @@ apply from: "../test_plugin.gradle"
 
 //通过全类名引用继承类实现的插件
 //apply plugin: test.hua.MyPluginGroovy
-//通过指定idyinyong
+//通过指定id 引用
 apply plugin: 'test.hua'
 
 println("子project引用根project中ext:${this.rootProject.ext.name}")
@@ -27,6 +27,7 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
     }
 
     signingConfigs {
@@ -105,4 +106,5 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
 }

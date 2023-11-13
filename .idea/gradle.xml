@@ -12,11 +12,13 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/aidlclient" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/arcgis2" />
             <option value="$PROJECT_DIR$/arouter_learn" />
             <option value="$PROJECT_DIR$/arouter_learn/aroutermain" />
             <option value="$PROJECT_DIR$/arouter_learn/modulea" />
+            <option value="$PROJECT_DIR$/arouter_learn/moduleb" />
             <option value="$PROJECT_DIR$/asmLib" />
             <option value="$PROJECT_DIR$/baseLib" />
             <option value="$PROJECT_DIR$/buildSrc" />
@@ -25,6 +27,8 @@
             <option value="$PROJECT_DIR$/kotlinleran" />
             <option value="$PROJECT_DIR$/myapplication" />
             <option value="$PROJECT_DIR$/third_lib" />
+            <option value="$PROJECT_DIR$/../flutter_module" />
+            <option value="$PROJECT_DIR$/../flutter_module/.android/Flutter" />
           </set>
         </option>
       </GradleProjectSettings>

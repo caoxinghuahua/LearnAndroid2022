@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,16 +21,23 @@ class MainActivity : AppCompatActivity() {
         }
 //        Log.d("**sssss**","sign:"+getSignString());
 
-        val liveData= MutableLiveData<String>()
-        liveData.observe(this,{
+        val liveData = MutableLiveData<String>()
+        liveData.observe(this, {
             println("###$it###")
         })
-        liveData.value="huahua"
-    }
-    fun getSignString(): String? {
-        return packageManager.getPackageInfo("com.drojian.alpha.fasting", PackageManager.GET_SIGNATURES)
+        liveData.value = "huahua"
+        lifecycleScope.launch { }
+        flow<Int> {
+
+        }
+        fun getSignString(): String? {
+            return packageManager.getPackageInfo(
+                "com.drojian.alpha.fasting",
+                PackageManager.GET_SIGNATURES
+            )
                 .signatures[0].toCharsString()
+        }
+
+
     }
-
-
 }

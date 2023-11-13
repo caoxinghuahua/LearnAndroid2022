@@ -5,7 +5,7 @@ public class TestSort {
     public static void main(String[] args) {
         int[] arr = {3, 8, 2, 6, 4, 10, 30, 15, 6};
         int[] arr2 = {6, 12, 18, 22, 3, 6, 9, 30, 7, 31};
-//        bubbleSort(arr);
+        bubbleSort(arr);
 //        bubbleSort(arr2);
 //        quick(arr);
 //        quick(arr2);

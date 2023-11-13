@@ -29,8 +29,16 @@ class K1 {
     fun testClass2(cls: KClass<K1>) {
 
     }
+    fun String.toShow(){
+        println("show")
+    }
 }
 
 fun show() {
     System.out.println("show kotlin")
+
 }
+fun String.toShow2(){
+    println("show")
+}
+

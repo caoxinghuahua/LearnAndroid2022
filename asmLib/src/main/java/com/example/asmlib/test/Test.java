@@ -7,6 +7,7 @@ import org.objectweb.asm.Opcodes;
 
 import java.io.FileOutputStream;
 
+//https://mp.weixin.qq.com/s/dQjsxduUiNrMYH2xhhpmQA
 public class Test {
     public static void main(String[] args) {
 //        testUser();
@@ -20,7 +21,7 @@ public class Test {
     }
 
     //Child 的 class文件路径
-    public static final String LOCAL_PATH = "/Users/hua/AndroidStudioProjects/MyApplication2/asmLib/build/intermediates/javac/debug/classes/com/example/asmlib/test";
+    public static final String LOCAL_PATH = "/Users/hua/AndroidStudioProjects/LearnAndroid2022/asmLib/build/intermediates/javac/debug/classes/com/example/asmlib/test";
 
     private static void startHook() {
         try {
