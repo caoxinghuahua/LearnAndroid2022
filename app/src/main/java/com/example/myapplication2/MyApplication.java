@@ -155,5 +155,8 @@ public class MyApplication extends Application {
         FlutterEngineCache.getInstance().put(CACHED_ENGINE_ID,flutterEngine);
 
     }
+    private void testEpic(){
+
+    }
 }
 

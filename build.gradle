@@ -6,7 +6,7 @@ buildscript {
 
     ext.kotlin_version = '1.4.32'
     repositories {
-
+        jcenter()
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'https://maven.aliyun.com/repository/mavenCentral' }
@@ -15,7 +15,7 @@ buildscript {
         maven { url 'https://jitpack.io' }
         maven { url 'https://esri.jfrog.io/artifactory/arcgis' }
         google()
-        jcenter()
+
         mavenCentral()
     }
     dependencies {
@@ -35,6 +35,7 @@ ext {
 println("***${ext.name}***")
 allprojects {
     repositories {
+        jcenter()
         maven { url 'https://maven.aliyun.com/repository/public/' }
         maven { url 'https://maven.aliyun.com/repository/google/'}
         maven { url 'https://maven.aliyun.com/repository/jcenter/'}

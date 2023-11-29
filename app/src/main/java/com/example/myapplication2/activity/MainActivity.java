@@ -53,6 +53,8 @@ public class MainActivity extends Activity {
     private TextView bigBitmapView;
     @InjectView(R.id.showFlutterView)
     private TextView showFlutterViewTv;
+    @InjectView(R.id.testEpic)
+    private TextView testEpic;
 
     byte[] bytes = "落霞与孤鹜齐飞，秋水共长天一色。".getBytes();
     private int transitCode = 1000;
@@ -182,7 +184,7 @@ public class MainActivity extends Activity {
                     //缓存FlutterEngin加快页面跳转速度
 //                    startActivity(FlutterActivity.withCachedEngine(MyApplication.CACHED_ENGINE_ID).build(MainActivity.this));
 
-                    MyFlutterActivity.Companion.startFlutterPage(this, "router3");
+                    MyFlutterActivity.Companion.startFlutterPage(this, "router2");
 
                 }
         );
@@ -191,7 +193,9 @@ public class MainActivity extends Activity {
 //        int heightPixels = displayMetrics.heightPixels;
 //
 //        getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
+         testEpic.setOnClickListener(v -> {
 
+         });
     }
 
     @Override

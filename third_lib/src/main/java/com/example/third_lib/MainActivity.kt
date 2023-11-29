@@ -18,6 +18,7 @@ import org.reactivestreams.Subscriber
 import org.reactivestreams.Subscription
 import java.util.concurrent.TimeUnit
 
+//https://blog.csdn.net/carson_ho/article/details/79081407
 class MainActivity : AppCompatActivity() {
     val TAG = "myObserver"
 

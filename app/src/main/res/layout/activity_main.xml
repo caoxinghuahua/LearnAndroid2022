@@ -73,5 +73,9 @@
             android:layout_height="wrap_content"
             android:text="ssss" />
     </LinearLayout>
-
+    <TextView
+        android:id="@+id/testEpic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="epic hook" />
 </LinearLayout>

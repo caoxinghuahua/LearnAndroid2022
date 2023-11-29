@@ -10,8 +10,8 @@ import java.io.FileOutputStream;
 //https://mp.weixin.qq.com/s/dQjsxduUiNrMYH2xhhpmQA
 public class Test {
     public static void main(String[] args) {
-//        testUser();
-        startHook();
+        testUser();
+//        startHook();
     }
 
     private static void testUser() {
@@ -34,7 +34,7 @@ public class Test {
             // 获取生成的class文件对应的二进制流
             byte[] code = cw.toByteArray();
             //将二进制流写到out/下
-            FileOutputStream fos = new FileOutputStream(LOCAL_PATH + "/User1.class");
+            FileOutputStream fos = new FileOutputStream(LOCAL_PATH + "/User.class");
             fos.write(code);
             fos.close();
         } catch (Exception e) {

@@ -21,8 +21,8 @@ include ':aidlclient'
 setBinding(new Binding([gradle:this]))
 evaluate(
         new File(
-                settingsDir,
-                '../flutter_module/.android/include_flutter.groovy'
+                settingsDir.parentFile,
+                'flutter_module/.android/include_flutter.groovy'
         )
 )
 include ':flutter_module'
