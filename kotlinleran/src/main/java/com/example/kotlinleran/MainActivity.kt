@@ -12,6 +12,9 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
+    val a by lazy{
+
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

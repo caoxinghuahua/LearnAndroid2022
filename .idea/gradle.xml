@@ -5,9 +5,8 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="testRunner" value="GRADLE" />
-        <option name="distributionType" value="LOCAL" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="$USER_HOME$/.gradle/wrapper/dists/gradle-7.2-all" />
         <option name="gradleJvm" value="1.8" />
         <option name="modules">
           <set>
@@ -32,7 +31,6 @@
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />
-        <option name="delegatedBuild" value="false" />
       </GradleProjectSettings>
     </option>
   </component>

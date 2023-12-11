@@ -15,6 +15,7 @@ import android.os.IBinder;
 import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.RemoteException;
+import android.os.Trace;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
@@ -120,7 +121,7 @@ public class MainActivity extends Activity {
 //        Log.d(TAG, "path:" + getExternalFilesDir("cache").getAbsolutePath());
 //
 //        Log.d(TAG, "onCreate");
-//        Trace.beginSection("s");
+        Trace.beginSection("s");
 //        Trace.endSection();
 //        getFlag("sss");
 
