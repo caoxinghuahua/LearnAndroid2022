@@ -15,7 +15,7 @@ rootProject.name = "LearnAndroid2022"
 println("初始化阶段开始")
 
 include ':aidlclient'
-
+include ':launcher'
 
 //flutter
 setBinding(new Binding([gradle:this]))
@@ -27,3 +27,4 @@ evaluate(
 )
 include ':flutter_module'
 project(':flutter_module').projectDir = new File('../flutter_module')
+

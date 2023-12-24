@@ -4,6 +4,7 @@
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
+        <option name="delegatedBuild" value="false" />
         <option name="testRunner" value="GRADLE" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -24,6 +25,7 @@
             <option value="$PROJECT_DIR$/crashlib" />
             <option value="$PROJECT_DIR$/javapoet" />
             <option value="$PROJECT_DIR$/kotlinleran" />
+            <option value="$PROJECT_DIR$/launcher" />
             <option value="$PROJECT_DIR$/myapplication" />
             <option value="$PROJECT_DIR$/third_lib" />
             <option value="$PROJECT_DIR$/../flutter_module" />

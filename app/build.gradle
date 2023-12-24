@@ -27,6 +27,7 @@ android {
 
         resConfigs "zh-rCN"  //打包中支持的语言（三方库包含了其他语言包比如 appcompat）
         multiDexEnabled true
+//        multiDexKeepFile File("ss.keep")
     }
     signingConfigs {
         joke {
@@ -93,7 +94,7 @@ dependencies {
     implementation project(path: ':baseLib')
 
     implementation project(path: ':flutter')
-    implementation 'com.github.tiann:epic:0.11.2'
+//    implementation 'com.github.tiann:epic:0.11.2'
 }
 repositories {
     mavenCentral()
