@@ -25,6 +25,8 @@ fun main() {
 
     //挂起函数
     testRequest()
+    val a = A1(name = "A", age = 1).copy()
+    println("A1 copy ${a.name}")
 }
 //fun july() {
 //    compose(1) {
@@ -38,15 +40,27 @@ fun compose(m: Int, block: (a: Int) -> Int): String {
 }
 
 //数据类
-data class A1(val name: String, val age: Int) {
+data class A1( var name: String, var age: Int) {
 
 }
+
 
 //密封类 解决条件分值else无法抵达,密封类和子类必须在同一文件夹下（可见性）
 sealed class SealPerson() {
     object Man : SealPerson()
     object Woman : SealPerson()
 }
+
+open class Common(){
+
+}
+
+//data class 不能继承
+
+
+//class NN():Common(){
+//
+//}
 
 fun testSeal(sealPerson: SealPerson) {
 
@@ -134,7 +148,7 @@ inline fun testInline(a: String, block: (String) -> Unit) {
 }
 
 //infix to语法糖 也属于扩展函数
-infix fun String.plusTo(params:String){
+infix fun String.plusTo(params: String) {
     println("$this $params")
 }
 
@@ -143,7 +157,7 @@ infix fun String.plusTo(params:String){
 //
 //}
 
-fun testRequest(){
+fun testRequest() {
 //    val request=HttpRequest("http://www.baidu.com");
 //    request.asyncRequest(object :HttpRequest.CallBack{
 //        override fun success() {
@@ -158,37 +172,37 @@ fun testRequest(){
     runBlocking {
         try {
             testSuspend("http://www.baidu.com")
-        }catch (e:Throwable){
+        } catch (e: Throwable) {
 
         }
     }
 }
 
 
-suspend fun testSuspend(url: String):String{
-   return suspendCoroutine{continuation->
-       val request=HttpRequest("http://www.baidu.com");
-       request.asyncRequest(object :HttpRequest.CallBack{
-           override fun success(content: String) {
-               println("request success")
-               continuation.resume(content)
-           }
+suspend fun testSuspend(url: String): String {
+    return suspendCoroutine { continuation ->
+        val request = HttpRequest("http://www.baidu.com");
+        request.asyncRequest(object : HttpRequest.CallBack {
+            override fun success(content: String) {
+                println("request success")
+                continuation.resume(content)
+            }
 
-           override fun fail(e:Throwable) {
-               println("request fail")
-               continuation.resumeWithException(e)
-           }
+            override fun fail(e: Throwable) {
+                println("request fail")
+                continuation.resumeWithException(e)
+            }
 
-       })
-   }
+        })
+    }
 }
 
 class HttpRequest(private val url: String) {
 
 
     interface CallBack {
-        fun success(content:String)
-        fun fail(e:Throwable)
+        fun success(content: String)
+        fun fail(e: Throwable)
 
     }
 

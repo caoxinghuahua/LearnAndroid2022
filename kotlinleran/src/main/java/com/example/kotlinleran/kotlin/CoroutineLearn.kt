@@ -28,11 +28,11 @@ fun main(args: Array<String>) {
 //    println("${test()}")
 
 //    testCoroutineCancel()
-//    newtest()
+    newtest()
 //    testArray()
 //    testFlow()
 
-    testCoroutine()
+//    testCoroutine()
 }
 
 fun testCoroutineCancel() {
@@ -72,13 +72,15 @@ fun testCoroutineCancel() {
 }
 
 
-
 fun newtest() {
 
     val scope = CoroutineScope(Job() + Dispatchers.Main)
 
-    GlobalScope.launch {
-
+     val exceptionHandler= CoroutineExceptionHandler { coroutineContext, throwable ->
+         println("aaaa:"+throwable)
+     }
+    GlobalScope.launch() {
+        println("start ")
         withContext(Dispatchers.IO) {
             println("iooooo")
         }
@@ -129,14 +131,20 @@ suspend fun aa() {
     val exceptionHandler = CoroutineExceptionHandler { context, throwable ->
         println("exceptionHandler: $throwable")
     }
-    val job = GlobalScope.launch(exceptionHandler) {
-        throw ArithmeticException()
+    val job = GlobalScope.launch() {
+//        launch(Dispatchers.IO) {
+//            try {
+                throw ArithmeticException()
+//            } catch (e: Exception) {
+//                println("e: $e")
+//            }
+//        }
     }
-    val deferred = GlobalScope.async(exceptionHandler) {
-        throw IllegalStateException()
-    }
+//    val deferred = GlobalScope.async(exceptionHandler) {
+//        throw IllegalStateException()
+//    }
     job.join()
-    deferred.await()
+//    deferred.await()
 }
 
 
@@ -151,10 +159,24 @@ fun testArray() {
 }
 
 suspend fun a() {
+    //协同作用域
     coroutineScope {
 
     }
+    //父子作用域
+    supervisorScope {
+
+    }
+    //顶级作用域
+    GlobalScope.launch {
+
+    }
 }
+
+
+
+
+
 
 
 //}
@@ -196,7 +218,6 @@ fun testCoroutine() {
     println("sss")
 
 
-
     val supendS = suspend {
         "Create Coroutine"
     }
@@ -217,21 +238,21 @@ fun testCoroutine() {
     supendS.startCoroutine(completion)
 
     //协程挂起和恢复执行
-    val suspendLambda= suspend {
+    val suspendLambda = suspend {
         println("before suspend")
         //挂起
-        val mm=suspendCoroutine<Int> {
-           Thread.sleep(1000)
+        val mm = suspendCoroutine<Int> {
+            Thread.sleep(1000)
             it.resume(123)
         }
         println("after suspend $mm")
     }
-    suspendLambda.startCoroutine(object :Continuation<Any>{
+    suspendLambda.startCoroutine(object : Continuation<Any> {
         override val context: CoroutineContext
             get() = EmptyCoroutineContext
 
         override fun resumeWith(result: Result<Any>) {
-           println("resumeWith")
+            println("resumeWith")
         }
     })
 

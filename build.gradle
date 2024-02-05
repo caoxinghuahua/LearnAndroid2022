@@ -1,17 +1,16 @@
-
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     //在project中引入，其他模块都可以使用，使用时加上rootProject.
     apply from: 'arouter_learn/config.gradle'
 
-    ext.kotlin_version = '1.4.32'
+    ext.kotlin_version = '1.7.20'
     repositories {
         jcenter()
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'https://maven.aliyun.com/repository/mavenCentral' }
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
-        maven { url 'https://maven.aliyun.com/nexus/content/repositories/releases/'}
+        maven { url 'https://maven.aliyun.com/nexus/content/repositories/releases/' }
         maven { url 'https://jitpack.io' }
         maven { url 'https://esri.jfrog.io/artifactory/arcgis' }
         google()
@@ -22,7 +21,8 @@ buildscript {
         classpath "com.android.tools.build:gradle:7.1.3"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         //AndResGuard
-        classpath'com.tencent.mm:AndResGuard-gradle-plugin:1.2.20'
+        classpath 'com.tencent.mm:AndResGuard-gradle-plugin:1.2.20'
+        classpath "org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:1.5.2"
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -37,8 +37,8 @@ allprojects {
     repositories {
         jcenter()
         maven { url 'https://maven.aliyun.com/repository/public/' }
-        maven { url 'https://maven.aliyun.com/repository/google/'}
-        maven { url 'https://maven.aliyun.com/repository/jcenter/'}
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter/' }
         mavenLocal()
         mavenCentral()
 
@@ -95,17 +95,17 @@ task task1 {
     }
 }
 
-this.tasks.create("task2222"){
+this.tasks.create("task2222") {
     setGroup("myTask")//指定分组
     setDescription("自建task")
     println("***创建task的第二种方式***")
     dependsOn(task1)//依赖的task
 }
 
-def Task hello=task(hello)
-hello.description ='hello world'
-hello.group=BasePlugin.BUILD_GROUP
-hello.doLast{
+def Task hello = task(hello)
+hello.description = 'hello world'
+hello.group = BasePlugin.BUILD_GROUP
+hello.doLast {
     println "任务分组: ${group}"
     println "任务描述: ${description}"
 }
@@ -153,35 +153,36 @@ task taskC(dependsOn: [taskA, taskB]) {
 //}
 
 
-task method{
+task method {
     //方法的调用
-    add(1,2)
-    println mins(5,2)
+    add(1, 2)
+    println mins(5, 2)
     //类的调用
-    def person=new Person(20,'hua')
+    def person = new Person(20, 'hua')
     person.increaseAge 10
-    println person.name +" age is "+person.age
+    println person.name + " age is " + person.age
 
     test()
 }
 
 //task中方法的调用
-def add(int a,int b){
+def add(int a, int b) {
     //未指定返回值，默认返回最后一行代码执行结果
-    println a+b
+    println a + b
 }
 //如果指定了方法返回类型，可以不需要def关键字来定义方法。
-int  mins(int a,int b){
-    println a-b
+int mins(int a, int b) {
+    println a - b
     return 1
 }
+
 def test() {
-    def number=[1,2,3]
+    def number = [1, 2, 3]
     assert number instanceof List
-    def name=[one:"张无忌",two:"郭靖",three:"杨过"]
-    assert name['one']=="张无忌"
+    def name = [one: "张无忌", two: "郭靖", three: "杨过"]
+    assert name['one'] == "张无忌"
     //exception
-   // assert name.one=="杨过"
+    // assert name.one=="杨过"
 
 //    def key = 'name'
 //    def person = [key: '魏无羡'] //key是key 而不是name
@@ -193,7 +194,7 @@ def test() {
 //        println "${a} is a ${b}"
 //    }
 
-   //文件的读取
+    //文件的读取
 //    def filePath = "/Users/hua/test.txt"
 //    def file = new File(filePath) ;
 //    //方式一
@@ -215,15 +216,17 @@ def test() {
 //}
 //groovy类
 
-class Person{
+class Person {
     Integer age
     String name
-    Person(Integer age,String name){
-        this.age=age
-        this.name=name
+
+    Person(Integer age, String name) {
+        this.age = age
+        this.name = name
     }
-    def increaseAge(Integer years){
-        this.age+=years
+
+    def increaseAge(Integer years) {
+        this.age += years
     }
 }
 

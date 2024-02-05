@@ -1,5 +1,7 @@
 package com.example.kotlinleran.kotlin
 
+import androidx.annotation.Nullable
+
 class Single {
     //单例的几种实现
     //https://blog.csdn.net/tgvincent/article/details/118383204?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-118383204-blog-122409567.pc_relevant_multi_platform_whitelistv3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-118383204-blog-122409567.pc_relevant_multi_platform_whitelistv3&utm_relevant_index=1
@@ -9,7 +11,9 @@ class Single {
         fun show() {
             println("object方式实现单例")
         }
-
+        fun test(s:String?){
+            println("java 和kotlin互调:$s")
+        }
     }
 
 

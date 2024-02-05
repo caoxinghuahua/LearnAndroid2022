@@ -6,11 +6,28 @@ import kotlinx.coroutines.flow.*
 import kotlin.coroutines.*
 
 fun main() {
-    testFlow()
-
+//    testFlow()
+    testStateFlow()
 }
 //https://blog.csdn.net/lyabc123456/article/details/127800121
 
+@OptIn(InternalCoroutinesApi::class)
+fun testStateFlow() {
+    GlobalScope.launch {
+        val stateFlow = MutableStateFlow<String>("11");
+
+        withContext(Dispatchers.IO) {
+            stateFlow.collect({ value ->
+                {
+                    println("stateFlow value is $value")
+                }
+            })
+        }
+        delay(2000)
+        stateFlow.value = "ss"
+    }
+
+}
 
 @OptIn(InternalCoroutinesApi::class)
 fun testFlow() {
@@ -71,5 +88,6 @@ fun testFlow() {
 
     Thread.sleep(1000)
     println("end")
+
 
 }
