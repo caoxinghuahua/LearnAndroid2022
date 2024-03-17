@@ -10,14 +10,17 @@ import android.content.ServiceConnection;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.RemoteException;
 import android.os.Trace;
+import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -25,8 +28,11 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.asynclayoutinflater.view.AsyncLayoutInflater;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.LayoutInflaterCompat;
 
 import com.example.myapplication2.MyApplication;
 import com.example.myapplication2.R;
@@ -37,6 +43,8 @@ import com.example.myapplication2.bigBitmap.TestBitmap;
 import com.example.myapplication2.generic.plugin.PluginMainActivity;
 import com.example.myapplication2.service.MyService;
 import com.example.myapplication2.utils.BitmapUtil;
+
+import org.w3c.dom.Text;
 
 import java.io.FileDescriptor;
 import java.util.HashMap;
@@ -67,6 +75,27 @@ public class MainActivity extends Activity {
 //    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //factory2统一替换TextView背景
+        LayoutInflaterCompat.setFactory2(LayoutInflater.from(this), new LayoutInflater.Factory2() {
+            @Nullable
+            @Override
+            public View onCreateView(@Nullable View parent, @NonNull String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+                if (name.equals("TextView")) {
+                    TextView textView = new TextView(context, attrs);
+                    textView.setTextColor(Color.WHITE);
+                    return textView;
+                } else {
+                    return null;
+                }
+            }
+
+
+            @Nullable
+            @Override
+            public View onCreateView(@NonNull String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+                return onCreateView(null, name, context, attrs);
+            }
+        });
         super.onCreate(savedInstanceState);
         //加载解析xml放在子线程处理
 //        new AsyncLayoutInflater(this).inflate(R.layout.activity_main, null, new AsyncLayoutInflater.OnInflateFinishedListener() {
@@ -76,7 +105,10 @@ public class MainActivity extends Activity {
 //                textView = findViewById(R.id.text);
 //            }
 //        });
+
+
         setContentView(R.layout.activity_main);
+
         findViewById(R.id.goPluginTv).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -194,9 +226,9 @@ public class MainActivity extends Activity {
 //        int heightPixels = displayMetrics.heightPixels;
 //
 //        getWindowManager().getDefaultDisplay().getRealMetrics(displayMetrics);
-         testEpic.setOnClickListener(v -> {
+        testEpic.setOnClickListener(v -> {
 
-         });
+        });
     }
 
     @Override

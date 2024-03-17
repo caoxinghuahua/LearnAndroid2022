@@ -1,81 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    tools:context=".activity.MainActivity">
-
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
-
-    <TextView
-        android:id="@+id/goPluginTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="插件化测试" />
-
-    <TextView
-        android:id="@+id/goServiceTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="多进程测试" />
-
-    <TextView
-        android:id="@+id/goTaskTv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="task测试" />
-
-    <TextView
-        android:id="@+id/annotation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="自定义隐注解获取view" />
-
-    <TextView
-        android:id="@+id/bigBitmap"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Intent传大图" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="1"
-        android:gravity="center_horizontal"
-        android:text="hello"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/showFlutterView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="显示Flutter页面" />
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".activity.MainActivity">
 
-        <com.example.myapplication2.view.MyView1
+        <TextView
+            android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ssss" />
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_shape_bg"
+            android:text="Hello World!"
+            />
+
+        <TextView
+            android:id="@+id/goPluginTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_shape_bg"
+            android:text="插件化测试" />
+
+        <TextView
+            android:id="@+id/goServiceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_shape_bg"
+            android:text="多进程测试" />
+
+        <TextView
+            android:id="@+id/goTaskTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_shape_bg"
+            android:text="task测试" />
+
+        <TextView
+            android:id="@+id/annotation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_shape_bg"
+            android:text="自定义隐注解获取view" />
+
+        <TextView
+            android:id="@+id/bigBitmap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_shape_bg"
+            android:text="Intent传大图" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_shape_bg"
+            android:ems="1"
+            android:gravity="center_horizontal"
+            android:text="hello"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/showFlutterView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_shape_bg"
+            android:text="显示Flutter页面" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <com.example.myapplication2.view.MyView1
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ssss" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/testEpic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_shape_bg"
+            android:text="epic hook" />
+
+        <TextView
+            android:id="@+id/testOOm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_shape_bg"
+            android:text="test oom" />
     </LinearLayout>
-    <TextView
-        android:id="@+id/testEpic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="epic hook" />
-</LinearLayout>
+</ScrollView>

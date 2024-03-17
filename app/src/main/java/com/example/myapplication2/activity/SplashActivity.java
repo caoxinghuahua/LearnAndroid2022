@@ -10,14 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.myapplication2.R;
 
-public class SplashActivity  extends AppCompatActivity {
+public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.splash);
 
-        new Thread(){
+        new Thread() {
             @Override
             public void run() {
                 super.run();
@@ -26,8 +26,9 @@ public class SplashActivity  extends AppCompatActivity {
                     sleep(3000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
-                }finally {
-                    startActivity(new Intent(SplashActivity.this,MainActivity.class));
+                } finally {
+                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
+                    finish();
                 }
             }
         }.start();
