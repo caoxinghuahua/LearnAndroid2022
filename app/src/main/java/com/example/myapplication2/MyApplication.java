@@ -27,6 +27,11 @@ public class MyApplication extends Application {
     public static final String CACHED_ENGINE_ID = "MY_CACHED_ENGINE_ID";
 
     @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+    }
+
+    @Override
     public void onCreate() {
         super.onCreate();
         CrashReport.INSTANCE.report(this);

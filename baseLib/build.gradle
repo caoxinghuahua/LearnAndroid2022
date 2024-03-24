@@ -55,7 +55,21 @@ dependencies {
     api 'com.squareup.retrofit2:retrofit:2.1.0'
 
 
+    // 仅在debug包启用BlockCanary进行卡顿监控和提示的话，可以这么用
+    debugApi 'com.github.markzhai:blockcanary-android:1.5.0'
+    releaseApi 'com.github.markzhai:blockcanary-no-op:1.5.0'
 
 //    debugApi 'com.squareup.leakcanary:leakcanary-android:2.10'
 
+    //matrix
+
+    api group: "com.tencent.matrix", name: "matrix-android-lib", version: MATRIX_VERSION, changing: true
+    api group: "com.tencent.matrix", name: "matrix-android-commons", version: MATRIX_VERSION, changing: true
+    api group: "com.tencent.matrix", name: "matrix-trace-canary", version: MATRIX_VERSION, changing: true
+//    api group: "com.tencent.matrix", name: "matrix-resource-canary-android", version: MATRIX_VERSION, changing: true
+//    api group: "com.tencent.matrix", name: "matrix-resource-canary-common", version: MATRIX_VERSION, changing: true
+//    api group: "com.tencent.matrix", name: "matrix-io-canary", version: MATRIX_VERSION, changing: true
+//    api group: "com.tencent.matrix", name: "matrix-sqlite-lint-android-sdk", version: MATRIX_VERSION, changing: true
+//    api group: "com.tencent.matrix", name: "matrix-battery-canary", version: MATRIX_VERSION, changing: true
+//    api group: "com.tencent.matrix", name: "matrix-hooks", version: MATRIX_VERSION, changing: true
 }

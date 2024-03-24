@@ -41,6 +41,7 @@ import com.example.myapplication2.annotion.InjectView;
 import com.example.myapplication2.bigBitmap.BitmapService;
 import com.example.myapplication2.bigBitmap.TestBitmap;
 import com.example.myapplication2.generic.plugin.PluginMainActivity;
+import com.example.myapplication2.matrix.TestMatrixActivity;
 import com.example.myapplication2.service.MyService;
 import com.example.myapplication2.utils.BitmapUtil;
 
@@ -140,6 +141,20 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+        findViewById(R.id.testBlock).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TestBlockActivity.class);
+                startActivity(intent);
+            }
+        });
+        findViewById(R.id.gotoMatrix).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TestMatrixActivity.class);
+                startActivity(intent);
+            }
+        });
 //        Toast
 
         int a = 10;
@@ -206,21 +221,18 @@ public class MainActivity extends Activity {
                 ServiceConnection.super.onNullBinding(name);
             }
         };
-        bigBitmapView.setOnClickListener(
-                v -> {
-                    Intent intent = new Intent(this, BitmapService.class);
-                    bindService(intent, serviceConnection, BIND_AUTO_CREATE);
-                }
-        );
+        bigBitmapView.setOnClickListener(v -> {
+            Intent intent = new Intent(this, BitmapService.class);
+            bindService(intent, serviceConnection, BIND_AUTO_CREATE);
+        });
         showFlutterViewTv.setOnClickListener(v -> {
 //                  startActivity(FlutterActivity.withNewEngine().initialRoute("route3").build(MainActivity.this));
-                    //缓存FlutterEngin加快页面跳转速度
+            //缓存FlutterEngin加快页面跳转速度
 //                    startActivity(FlutterActivity.withCachedEngine(MyApplication.CACHED_ENGINE_ID).build(MainActivity.this));
 
-                    MyFlutterActivity.Companion.startFlutterPage(this, "router2");
+            MyFlutterActivity.Companion.startFlutterPage(this, "router2");
 
-                }
-        );
+        });
 //        DisplayMetrics displayMetrics=new DisplayMetrics();
 //        getWindow().getDecorView().getDisplay().getMetrics(displayMetrics);
 //        int heightPixels = displayMetrics.heightPixels;

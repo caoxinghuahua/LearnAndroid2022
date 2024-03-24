@@ -18,8 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="@drawable/bt_shape_bg"
-            android:text="Hello World!"
-            />
+            android:text="Hello World!" />
 
         <TextView
             android:id="@+id/goPluginTv"
@@ -106,5 +105,21 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/bt_shape_bg"
             android:text="test oom" />
+
+        <TextView
+            android:id="@+id/testBlock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_shape_bg"
+            android:text="test block" />
+
+        <TextView
+            android:id="@+id/gotoMatrix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bt_shape_bg"
+            android:text="Goto Matrix" />
     </LinearLayout>
 </ScrollView>

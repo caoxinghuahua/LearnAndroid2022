@@ -7,7 +7,14 @@ apply plugin: 'kotlin-parcelize'
 //apply plugin: 'kotlin-kapt'
 
 apply from: 'res_build.gradle'
-
+apply plugin: 'com.tencent.matrix-plugin'
+matrix {
+    trace {
+        enable = true	//if you don't want to use trace canary, set false
+        baseMethodMapFile = "${project.buildDir}/matrix_output/Debug.methodmap"
+        blackListFile = "${project.projectDir}/matrixTrace/blackMethodList.txt"
+    }
+}
 android {
     compileSdkVersion 31
 
@@ -71,6 +78,10 @@ android {
     packagingOptions {
         //在leakcanary和koom中同时使用了shark库
         exclude 'META-INF/shark.kotlin_module'
+        exclude 'lib/arm64-v8a/libwechatbacktrace.so'
+        exclude 'lib/arm64-v8a/libc++_shared.so'
+        exclude 'lib/armeabi-v7a/libwechatbacktrace.so'
+        exclude 'lib/armeabi-v7a/libc++_shared.so'
     }
 
 }
